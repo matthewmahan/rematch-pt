@@ -125,22 +125,15 @@ nav .container {
 }
 
 .logo {
-  font-family: var(--font-display);
-  font-size: 28px;
-  letter-spacing: 3px;
   text-decoration: none;
-  color: var(--cream);
   display: flex;
   align-items: center;
-  gap: 10px;
 }
 
-.logo-mark {
-  width: 8px;
-  height: 32px;
-  background: var(--accent);
-  border-radius: 2px;
-  display: inline-block;
+.logo-img {
+  height: 20px;
+  width: auto;
+  display: block;
 }
 
 .nav-links {
