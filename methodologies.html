@@ -7,163 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<style>
-/* ═══ PROCESS ═══ */
-.process {
-  background: var(--gray-900);
-  border-top: 1px solid var(--gray-700);
-  border-bottom: 1px solid var(--gray-700);
-}
-
-.process-header { margin-bottom: 64px; }
-
-.process-steps {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  position: relative;
-}
-
-.process-steps::before {
-  content: '';
-  position: absolute;
-  top: 40px;
-  left: 60px;
-  right: 60px;
-  height: 2px;
-  background: linear-gradient(to right, var(--accent), rgba(43,143,217,0.15));
-  z-index: 0;
-}
-
-.step {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-}
-
-.step-num {
-  width: 80px; height: 80px;
-  border-radius: 50%;
-  background: var(--gray-800);
-  border: 2px solid var(--accent);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-display);
-  font-size: 32px;
-  color: var(--accent);
-  margin: 0 auto 24px;
-  position: relative;
-}
-
-.step h3 {
-  font-family: var(--font-display);
-  font-size: 22px;
-  letter-spacing: 0.5px;
-  margin-bottom: 10px;
-}
-
-.step p {
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--gray-400);
-  max-width: 240px;
-  margin: 0 auto;
-}
-
-/* ═══ COMPARISON ═══ */
-.comparison-header {
-  text-align: center;
-  margin-bottom: 56px;
-}
-.comparison-header .section-eyebrow { justify-content: center; }
-.comparison-header .section-title { margin: 0 auto; }
-.comparison-header .section-subtitle { margin: 20px auto 0; text-align: center; }
-
-.comparison-table {
-  max-width: 900px;
-  margin: 0 auto;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid var(--gray-700);
-}
-
-.comparison-header-row {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  background: var(--gray-800);
-  border-bottom: 1px solid var(--gray-700);
-}
-
-.comparison-header-row > div {
-  padding: 24px;
-  text-align: center;
-}
-
-.comparison-header-row > div:first-child { text-align: left; }
-
-.col-label {
-  font-family: var(--font-display);
-  font-size: 20px;
-  letter-spacing: 1px;
-}
-
-.col-label.rematch { color: var(--accent); }
-.col-label.other { color: var(--gray-400); }
-
-.comparison-row {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  border-bottom: 1px solid var(--gray-700);
-  transition: background 0.3s;
-}
-
-.comparison-row:last-child { border-bottom: none; }
-.comparison-row:hover { background: rgba(43,143,217,0.03); }
-
-.comparison-row > div {
-  padding: 20px 24px;
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-}
-
-.comparison-row > div:first-child {
-  color: var(--cream);
-  font-weight: 500;
-}
-
-.comparison-row > div:nth-child(2),
-.comparison-row > div:nth-child(3) {
-  justify-content: center;
-}
-
-.check {
-  width: 28px; height: 28px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 14px; font-weight: 700;
-}
-
-.check.yes {
-  background: rgba(43,143,217,0.12);
-  color: var(--accent);
-  border: 1px solid rgba(43,143,217,0.25);
-}
-
-.check.no {
-  background: rgba(255,80,80,0.08);
-  color: #ff5050;
-  border: 1px solid rgba(255,80,80,0.15);
-}
-
-@media (max-width: 1024px) {
-  .process-steps { grid-template-columns: repeat(2, 1fr); gap: 40px; }
-  .process-steps::before { display: none; }
-}
-@media (max-width: 768px) {
-  .process-steps { grid-template-columns: 1fr; }
-  .comparison-row > div { padding: 14px 12px; font-size: 13px; }
-}
-</style>
 </head>
 <body>
 
@@ -182,7 +25,7 @@
 
 <section class="page-hero">
   <div class="page-hero-bg"></div>
-  <div class="page-hero-grain"></div>
+  <div class="noise-overlay"></div>
   <div class="container">
     <div class="page-hero-content">
       <div class="section-eyebrow">The Model</div>
@@ -231,7 +74,7 @@
 <!-- ═══ COMPARISON TABLE ═══ -->
 <section class="comparison">
   <div class="container">
-    <div class="comparison-header reveal">
+    <div class="comparison-header section-header--center reveal">
       <div class="section-eyebrow">Comparison</div>
       <h2 class="section-title">REHAB THE WAY IT SHOULD BE</h2>
       <p class="section-subtitle">You are the number one priority. We work with you — not your insurance company.</p>

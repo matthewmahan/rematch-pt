@@ -7,180 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<style>
-/* ═══ ABOUT HERO ═══ */
-.about-hero {
-  padding: 160px 0 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.about-hero-bg {
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse 60% 50% at 30% 40%, rgba(43,143,217,0.06) 0%, transparent 60%);
-}
-
-.about-hero-grain {
-  position: absolute; inset: 0; opacity: 0.035;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 200px;
-}
-
-.about-hero .container {
-  position: relative; z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-
-.about-hero-content {
-  padding: 60px 0;
-}
-
-.about-hero-content .section-eyebrow { opacity: 0; animation: fadeUp 0.8s 0.2s forwards; }
-.about-hero-content h1 {
-  font-family: var(--font-display);
-  font-size: clamp(56px, 8vw, 100px);
-  line-height: 0.92;
-  opacity: 0; animation: fadeUp 0.8s 0.4s forwards;
-}
-.about-hero-content h1 em { font-style: normal; color: var(--accent); }
-.about-hero-content .intro-text {
-  font-size: clamp(16px, 1.8vw, 19px);
-  line-height: 1.7; color: var(--gray-300);
-  margin-top: 28px; font-weight: 300;
-  opacity: 0; animation: fadeUp 0.8s 0.6s forwards;
-}
-
-.about-hero-img {
-  position: relative;
-  opacity: 0; animation: fadeUp 0.8s 0.5s forwards;
-}
-
-.about-hero-img img {
-  width: 100%;
-  aspect-ratio: 3/4;
-  object-fit: cover;
-  border-radius: 16px;
-  filter: grayscale(20%);
-}
-
-.about-hero-img-accent {
-  position: absolute;
-  bottom: -8px; left: -8px;
-  width: 120px; height: 120px;
-  border: 3px solid var(--accent);
-  border-radius: 0 16px 0 16px;
-}
-
-/* ═══ STATS BAR ═══ */
-.stats-bar {
-  background: var(--gray-900);
-  border-top: 1px solid var(--gray-700);
-  border-bottom: 1px solid var(--gray-700);
-  padding: 56px 0;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-  text-align: center;
-}
-
-.stat-item { position: relative; }
-.stat-item:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  top: 10%; bottom: 10%;
-  right: 0;
-  width: 1px;
-  background: var(--gray-700);
-}
-
-.stat-number {
-  font-family: var(--font-display);
-  font-size: clamp(40px, 5vw, 56px);
-  color: var(--accent);
-  line-height: 1;
-}
-
-.stat-text {
-  font-size: 13px;
-  color: var(--gray-400);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-top: 8px;
-}
-
-/* ═══ BIO SECTIONS ═══ */
-.bio {
-  padding: clamp(80px, 10vw, 120px) 0;
-}
-
-.bio-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 56px;
-  margin-top: 48px;
-}
-
-.bio-card {
-  background: var(--gray-900);
-  border: 1px solid var(--gray-700);
-  border-radius: 16px;
-  padding: 36px 32px;
-  transition: border-color 0.4s, transform 0.4s;
-  position: relative;
-  overflow: hidden;
-}
-
-.bio-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: var(--accent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s;
-}
-
-.bio-card:hover { border-color: rgba(43,143,217,0.2); transform: translateY(-3px); }
-.bio-card:hover::before { transform: scaleX(1); }
-
-.bio-card-icon {
-  width: 48px; height: 48px;
-  background: rgba(43,143,217,0.06);
-  border: 1px solid rgba(43,143,217,0.12);
-  border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 20px;
-}
-
-.bio-card-icon svg { width: 22px; height: 22px; stroke: var(--accent); }
-
-.bio-card h3 {
-  font-family: var(--font-display);
-  font-size: 22px; letter-spacing: 0.5px; margin-bottom: 12px;
-}
-
-.bio-card p {
-  font-size: 14px; line-height: 1.7; color: var(--gray-400);
-}
-
-@media (max-width: 1024px) {
-  .about-hero .container { grid-template-columns: 1fr; gap: 48px; }
-  .about-hero-img { max-width: 400px; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
-  .stat-item:not(:last-child)::after { display: none; }
-  .bio-grid { grid-template-columns: 1fr; }
-}
-@media (max-width: 768px) {
-  .stats-grid { grid-template-columns: 1fr 1fr; }
-}
-</style>
 </head>
 <body>
 
@@ -200,7 +26,7 @@
 <!-- ═══ ABOUT HERO ═══ -->
 <section class="about-hero">
   <div class="about-hero-bg"></div>
-  <div class="about-hero-grain"></div>
+  <div class="noise-overlay"></div>
   <div class="container">
     <div class="about-hero-content">
       <div class="section-eyebrow">About</div>
@@ -220,19 +46,19 @@
     <div class="stats-grid reveal">
       <div class="stat-item">
         <div class="stat-number">10+</div>
-        <div class="stat-text">Years Experience</div>
+        <div class="stat-label">Years Experience</div>
       </div>
       <div class="stat-item">
         <div class="stat-number">14K+</div>
-        <div class="stat-text">Hours with Patients</div>
+        <div class="stat-label">Hours with Patients</div>
       </div>
       <div class="stat-item">
         <div class="stat-number">500+</div>
-        <div class="stat-text">Patients Seen</div>
+        <div class="stat-label">Patients Seen</div>
       </div>
       <div class="stat-item">
         <div class="stat-number">500+</div>
-        <div class="stat-text">Miles Ran</div>
+        <div class="stat-label">Miles Ran</div>
       </div>
     </div>
   </div>
