@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Rematch Physical Therapy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0a0a0a;
+  --cream: #f5f2ed;
+  --accent: #2b8fd9;
+  --accent-dim: #005ea8;
+  --gray-900: #141414;
+  --gray-800: #1c1c1c;
+  --gray-700: #2a2a2a;
+  --gray-400: #888;
+  --gray-300: #aaa;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { background: var(--black); color: var(--cream); font-family: var(--font-body); overflow-x: hidden; }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 64px); }
+
+/* ═══ NAV ═══ */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 0; transition: background 0.4s; }
+nav.scrolled { background: rgba(10,10,10,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+nav .container { display: flex; align-items: center; justify-content: space-between; }
+.logo { font-family: var(--font-display); font-size: 28px; letter-spacing: 3px; text-decoration: none; color: var(--cream); display: flex; align-items: center; gap: 10px; }
+.logo-mark { width: 8px; height: 32px; background: var(--accent); border-radius: 2px; display: inline-block; }
+.nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+.nav-links a { font-size: 14px; font-weight: 500; letter-spacing: 0.5px; text-decoration: none; color: var(--gray-300); transition: color 0.3s; text-transform: uppercase; }
+.nav-links a:hover { color: var(--cream); }
+.nav-cta { background: var(--accent) !important; color: #fff !important; padding: 12px 28px; border-radius: 100px; font-weight: 700 !important; font-size: 13px !important; letter-spacing: 1px !important; transition: transform 0.3s, box-shadow 0.3s !important; }
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(43,143,217,0.25); }
+.mobile-toggle { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 6px; padding: 4px; }
+.mobile-toggle span { display: block; width: 28px; height: 2px; background: var(--cream); }
+
+section { padding: clamp(80px, 10vw, 140px) 0; }
+.section-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+.section-eyebrow::before { content: ''; width: 30px; height: 2px; background: var(--accent); }
+
+/* ═══ CONTACT HERO ═══ */
+.contact-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 40%, rgba(43,143,217,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 80% 70%, rgba(43,143,217,0.04) 0%, transparent 60%);
+}
+
+.contact-hero-grain {
+  position: absolute; inset: 0; opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px;
+}
+
+.contact-layout {
+  position: relative; z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  width: 100%;
+}
+
+.contact-info {
+  opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+}
+
+.contact-info h1 {
+  font-family: var(--font-display);
+  font-size: clamp(56px, 8vw, 100px);
+  line-height: 0.92;
+  margin-bottom: 24px;
+}
+
+.contact-info h1 em { font-style: normal; color: var(--accent); }
+
+.contact-info > p {
+  font-size: clamp(16px, 1.8vw, 19px);
+  line-height: 1.7;
+  color: var(--gray-300);
+  font-weight: 300;
+  max-width: 460px;
+  margin-bottom: 48px;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-detail {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.contact-detail-icon {
+  width: 48px; height: 48px;
+  background: rgba(43,143,217,0.06);
+  border: 1px solid rgba(43,143,217,0.12);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-detail-icon svg { width: 20px; height: 20px; stroke: var(--accent); }
+
+.contact-detail-text h4 {
+  font-size: 14px; font-weight: 600; margin-bottom: 2px;
+}
+
+.contact-detail-text p {
+  font-size: 14px; color: var(--gray-400);
+}
+
+/* ═══ FORM ═══ */
+.contact-form-wrap {
+  background: var(--gray-900);
+  border: 1px solid var(--gray-700);
+  border-radius: 20px;
+  padding: 48px 40px;
+  opacity: 0; animation: fadeUp 0.8s 0.5s forwards;
+}
+
+.contact-form-wrap h2 {
+  font-family: var(--font-display);
+  font-size: 32px;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.contact-form-wrap > p {
+  font-size: 14px;
+  color: var(--gray-400);
+  margin-bottom: 32px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-group { margin-bottom: 16px; }
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--gray-300);
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  background: var(--gray-800);
+  border: 1px solid var(--gray-700);
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--cream);
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--accent);
+}
+
+.form-group textarea { resize: vertical; min-height: 120px; }
+
+.form-group select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23888' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; }
+
+.form-group select option { background: var(--gray-800); color: var(--cream); }
+
+.btn-submit {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--accent); color: #fff;
+  padding: 16px 36px; border-radius: 100px;
+  font-family: var(--font-body); font-size: 15px; font-weight: 700;
+  letter-spacing: 0.5px; text-transform: uppercase;
+  border: none; cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 100%;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.btn-submit:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(43,143,217,0.3); }
+
+/* ═══ FOOTER ═══ */
+footer { border-top: 1px solid var(--gray-700); padding: 56px 0 40px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+.footer-brand .logo { margin-bottom: 16px; }
+.footer-brand p { font-size: 14px; color: var(--gray-400); line-height: 1.6; max-width: 300px; }
+.footer-col h5 { font-family: var(--font-display); font-size: 16px; letter-spacing: 2px; margin-bottom: 20px; color: var(--cream); }
+.footer-col a { display: block; font-size: 14px; color: var(--gray-400); text-decoration: none; padding: 4px 0; transition: color 0.3s; }
+.footer-col a:hover { color: var(--accent); }
+.footer-bottom { border-top: 1px solid var(--gray-700); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--gray-400); }
+.footer-bottom a { color: var(--gray-400); text-decoration: none; transition: color 0.3s; }
+.footer-bottom a:hover { color: var(--accent); }
+.footer-legal { display: flex; gap: 24px; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 1024px) {
+  .contact-layout { grid-template-columns: 1fr; gap: 48px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .mobile-toggle { display: flex; }
+  .nav-links.open { display: flex; flex-direction: column; position: fixed; inset: 0; background: var(--black); justify-content: center; align-items: center; gap: 32px; z-index: 99; }
+  .nav-links.open a { font-size: 24px; color: var(--cream); }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+  .footer-legal { flex-wrap: wrap; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+  <div class="container">
+    <a href="/" class="logo"><span class="logo-mark"></span>REMATCH PT</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/injuries">Injuries</a></li>
+      <li><a href="/methodologies">Methodologies</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact" class="nav-cta">Get Started</a></li>
+    </ul>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- ═══ CONTACT ═══ -->
+<section class="contact-hero">
+  <div class="contact-hero-bg"></div>
+  <div class="contact-hero-grain"></div>
+  <div class="container">
+    <div class="contact-layout">
+      <div class="contact-info">
+        <div class="section-eyebrow">Get Started</div>
+        <h1>FREE <em>CONSULT</em></h1>
+        <p>Take the first step toward feeling and moving better. Schedule your free consultation with Rematch PT and let's work on reaching your goals together.</p>
+        <div class="contact-details">
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="contact-detail-text">
+              <h4>Location</h4>
+              <p>Online — available nationwide</p>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div class="contact-detail-text">
+              <h4>Response Time</h4>
+              <p>Typically within 24 hours</p>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div class="contact-detail-text">
+              <h4>Consultation</h4>
+              <p>Free — no obligation</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap">
+        <h2>SCHEDULE YOUR CALL</h2>
+        <p>Fill out the form below and Dr. Allie will be in touch to set up your free consultation.</p>
+        <div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" placeholder="Jane">
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" placeholder="Smith">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="jane@example.com">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone (optional)</label>
+            <input type="tel" id="phone" placeholder="(555) 555-5555">
+          </div>
+          <div class="form-group">
+            <label for="concern">Primary Concern</label>
+            <select id="concern">
+              <option value="" disabled selected>Select your concern</option>
+              <option>Hip pain</option>
+              <option>Knee pain</option>
+              <option>Ankle pain</option>
+              <option>Shoulder pain</option>
+              <option>Back pain</option>
+              <option>Foot pain</option>
+              <option>Sports performance</option>
+              <option>Injury prevention</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Tell us more</label>
+            <textarea id="message" placeholder="What are your goals? What's been holding you back?"></textarea>
+          </div>
+          <button class="btn-submit">
+            Request Free Consultation
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="/" class="logo"><span class="logo-mark"></span>REMATCH PT</a><p>Expert physical therapy designed around your life. Anytime, anywhere recovery for active adults and athletes.</p></div>
+      <div class="footer-col"><h5>NAVIGATE</h5><a href="/">Home</a><a href="/injuries">Injuries</a><a href="/methodologies">Methodologies</a><a href="/about">About</a><a href="/contact">Contact</a></div>
+      <div class="footer-col"><h5>SERVICES</h5><a href="/injuries">Physical Therapy</a><a href="/injuries">Digital Coaching</a><a href="/injuries">Injury Prevention</a><a href="/injuries">Dry Needling</a><a href="/injuries">Sports Rehab</a></div>
+      <div class="footer-col"><h5>LEGAL</h5><a href="/terms">Terms & Conditions</a><a href="/privacy">Privacy Policy</a><a href="/accessibility">Accessibility</a></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2025 AM Performance LLC. All Rights Reserved.</span><div class="footer-legal"><a href="/terms">Terms</a><a href="/privacy">Privacy</a><a href="/accessibility">Accessibility</a></div></div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); });
+document.getElementById('mobileToggle').addEventListener('click', () => { document.getElementById('navLinks').classList.toggle('open'); });
+</script>
+</body>
+</html>
