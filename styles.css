@@ -1,4 +1,37 @@
 /* ═══════════════════════════════════════════════════════════════
+   0. FONTS (@font-face)
+   ═══════════════════════════════════════════════════════════════ */
+@font-face {
+  font-family: 'Fraktion Sans';
+  src: url('fonts/Sans/PPFraktionSans-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fraktion Sans';
+  src: url('fonts/Sans/PPFraktionSans-LightItalic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fraktion Sans';
+  src: url('fonts/Sans/PPFraktionSans-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fraktion Sans';
+  src: url('fonts/Sans/PPFraktionSans-BoldItalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
    REMATCH PT — styles.css
    ═══════════════════════════════════════════════════════════════ */
 
@@ -37,8 +70,8 @@
   --black-glass: rgba(10, 10, 10, 0.85);
 
   /* ── Typography ── */
-  --font-display: 'Bebas Neue', sans-serif;
-  --font-body:    'DM Sans', sans-serif;
+  --font-display: 'Fraktion Sans', sans-serif;
+  --font-body:    'Fraktion Sans', sans-serif;
 
   /* ── Spacing scale ── */
   --space-xs:  4px;
@@ -77,6 +110,7 @@ body {
   background: var(--black);
   color: var(--cream);
   font-family: var(--font-body);
+  font-weight: 300;
   overflow-x: hidden;
 }
 
@@ -197,7 +231,7 @@ nav .container {
    5. TYPOGRAPHY & SECTION UTILITIES
    ═══════════════════════════════════════════════════════════════ */
 section {
-  padding: clamp(80px, 10vw, 140px) 0;
+  padding: clamp(100px, 12vw, 160px) 0;
 }
 
 .section-eyebrow {
@@ -221,9 +255,10 @@ section {
 
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(40px, 6vw, 72px);
-  line-height: 0.95;
-  letter-spacing: -0.5px;
+  font-weight: 700;
+  font-size: clamp(32px, 4.5vw, 60px);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
   max-width: 700px;
 }
 
@@ -409,9 +444,10 @@ section {
 
 .hero h1 {
   font-family: var(--font-display);
-  font-size: clamp(60px, 10vw, 140px);
-  line-height: 0.92;
-  letter-spacing: -1px;
+  font-weight: 700;
+  font-size: clamp(48px, 7.5vw, 104px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
   color: var(--cream);
   max-width: 900px;
   opacity: 0;
@@ -458,6 +494,7 @@ section {
    Update the HTML class names accordingly. */
 .stat-number {
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: 48px;
   color: var(--accent);
   line-height: 1;
@@ -588,8 +625,9 @@ section {
 
 .feature-card h3 {
   font-family: var(--font-display);
-  font-size: 24px;
-  letter-spacing: 0.5px;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.01em;
   margin-bottom: 12px;
 }
 
@@ -631,6 +669,7 @@ section {
 .testimonial-card::before {
   content: '"';
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: 80px;
   color: var(--accent);
   opacity: 0.15;
@@ -667,6 +706,7 @@ section {
   align-items: center;
   justify-content: center;
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: 18px;
   color: var(--accent);
 }
@@ -719,8 +759,9 @@ section {
 
 .system-col-label {
   font-family: var(--font-display);
-  font-size: 20px;
-  letter-spacing: 2px;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: var(--space-sm);
   display: flex;
@@ -827,9 +868,10 @@ section {
 
 .page-hero h1 {
   font-family: var(--font-display);
-  font-size: clamp(52px, 8vw, 100px);
-  line-height: 0.92;
-  letter-spacing: -1px;
+  font-weight: 700;
+  font-size: clamp(44px, 6.5vw, 88px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
   opacity: 0;
   animation: fadeUp 0.8s 0.4s forwards;
 }
@@ -901,8 +943,9 @@ section {
 
 .body-card h3 {
   font-family: var(--font-display);
-  font-size: 22px;
-  letter-spacing: 0.5px;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.01em;
   margin-bottom: var(--space-sm);
 }
 
@@ -963,8 +1006,9 @@ section {
 
 .service-body h3 {
   font-family: var(--font-display);
-  font-size: 26px;
-  letter-spacing: 0.5px;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.01em;
   margin-bottom: 10px;
 }
 
@@ -1004,8 +1048,9 @@ section {
 
 .about-hero-content h1 {
   font-family: var(--font-display);
-  font-size: clamp(56px, 8vw, 100px);
-  line-height: 0.92;
+  font-weight: 700;
+  font-size: clamp(44px, 6.5vw, 88px);
+  line-height: 0.95;
   opacity: 0;
   animation: fadeUp 0.8s 0.4s forwards;
 }
@@ -1127,8 +1172,9 @@ section {
 
 .bio-card h3 {
   font-family: var(--font-display);
-  font-size: 22px;
-  letter-spacing: 0.5px;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.01em;
   margin-bottom: 12px;
 }
 
@@ -1178,6 +1224,7 @@ section {
   align-items: center;
   justify-content: center;
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: 32px;
   color: var(--accent);
   margin: 0 auto var(--space-lg);
@@ -1185,8 +1232,9 @@ section {
 
 .step h3 {
   font-family: var(--font-display);
-  font-size: 22px;
-  letter-spacing: 0.5px;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.01em;
   margin-bottom: 10px;
 }
 
@@ -1228,8 +1276,9 @@ section {
 
 .col-label {
   font-family: var(--font-display);
-  font-size: 20px;
-  letter-spacing: 1px;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: -0.01em;
 }
 
 .col-label.rematch { color: var(--accent); }
@@ -1317,8 +1366,9 @@ section {
 
 .contact-info h1 {
   font-family: var(--font-display);
-  font-size: clamp(56px, 8vw, 100px);
-  line-height: 0.92;
+  font-weight: 700;
+  font-size: clamp(44px, 6.5vw, 88px);
+  line-height: 0.95;
   margin-bottom: var(--space-lg);
 }
 
@@ -1360,8 +1410,9 @@ section {
 
 .contact-form-wrap h2 {
   font-family: var(--font-display);
-  font-size: 32px;
-  letter-spacing: 1px;
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: -0.02em;
   margin-bottom: var(--space-sm);
 }
 
@@ -1495,6 +1546,7 @@ footer {
 
 .footer-col h5 {
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: 16px;
   letter-spacing: 2px;
   margin-bottom: 20px;
@@ -1603,7 +1655,7 @@ footer {
     z-index: 99;
   }
 
-  .nav-links.open a { font-size: 24px; color: var(--cream); }
+  .nav-links.open a { font-size: clamp(28px, 6vw, 40px); font-weight: 700; letter-spacing: -0.02em; color: var(--cream); }
 
   /* Index */
   .hero h1       { font-size: clamp(48px, 12vw, 80px); }
