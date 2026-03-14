@@ -6,63 +6,8 @@
 <title>Methodologies — Rematch Physical Therapy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 <style>
-:root {
-  --black: #0a0a0a;
-  --cream: #f5f2ed;
-  --accent: #2b8fd9;
-  --accent-dim: #005ea8;
-  --gray-900: #141414;
-  --gray-800: #1c1c1c;
-  --gray-700: #2a2a2a;
-  --gray-400: #888;
-  --gray-300: #aaa;
-  --font-display: 'Bebas Neue', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-body { background: var(--black); color: var(--cream); font-family: var(--font-body); overflow-x: hidden; }
-.container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 64px); }
-
-/* ═══ NAV ═══ */
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 0; transition: background 0.4s, backdrop-filter 0.4s; }
-nav.scrolled { background: rgba(10,10,10,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
-nav .container { display: flex; align-items: center; justify-content: space-between; }
-.logo { font-family: var(--font-display); font-size: 28px; letter-spacing: 3px; text-decoration: none; color: var(--cream); display: flex; align-items: center; gap: 10px; }
-.logo-mark { width: 8px; height: 32px; background: var(--accent); border-radius: 2px; display: inline-block; }
-.nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
-.nav-links a { font-size: 14px; font-weight: 500; letter-spacing: 0.5px; text-decoration: none; color: var(--gray-300); transition: color 0.3s; text-transform: uppercase; }
-.nav-links a:hover { color: var(--cream); }
-.nav-cta { background: var(--accent) !important; color: #fff !important; padding: 12px 28px; border-radius: 100px; font-weight: 700 !important; font-size: 13px !important; letter-spacing: 1px !important; transition: transform 0.3s, box-shadow 0.3s !important; }
-.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(43,143,217,0.25); }
-.mobile-toggle { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 6px; padding: 4px; }
-.mobile-toggle span { display: block; width: 28px; height: 2px; background: var(--cream); }
-
-/* ═══ PAGE HERO ═══ */
-.page-hero { padding: 180px 0 100px; position: relative; overflow: hidden; }
-.page-hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 50% at 60% 30%, rgba(43,143,217,0.07) 0%, transparent 60%); }
-.page-hero-grain { position: absolute; inset: 0; opacity: 0.035; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 200px; }
-.page-hero-content { position: relative; z-index: 1; max-width: 720px; }
-.page-hero .section-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; opacity: 0; animation: fadeUp 0.8s 0.2s forwards; }
-.page-hero .section-eyebrow::before { content: ''; width: 40px; height: 2px; background: var(--accent); }
-.page-hero h1 { font-family: var(--font-display); font-size: clamp(52px, 8vw, 100px); line-height: 0.92; letter-spacing: -1px; opacity: 0; animation: fadeUp 0.8s 0.4s forwards; }
-.page-hero h1 em { font-style: normal; color: var(--accent); }
-.page-hero-sub { font-size: clamp(16px, 2vw, 20px); line-height: 1.6; color: var(--gray-400); max-width: 560px; margin-top: 24px; font-weight: 300; opacity: 0; animation: fadeUp 0.8s 0.6s forwards; }
-.page-hero-cta { margin-top: 40px; opacity: 0; animation: fadeUp 0.8s 0.8s forwards; }
-.btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--accent); color: #fff; padding: 18px 40px; border-radius: 100px; font-size: 15px; font-weight: 700; letter-spacing: 0.5px; text-decoration: none; text-transform: uppercase; transition: transform 0.3s, box-shadow 0.3s; }
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(43,143,217,0.3); }
-.btn-primary svg { width: 18px; height: 18px; transition: transform 0.3s; }
-.btn-primary:hover svg { transform: translateX(4px); }
-
-/* ═══ SECTIONS ═══ */
-section { padding: clamp(80px, 10vw, 140px) 0; }
-.section-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
-.section-eyebrow::before { content: ''; width: 30px; height: 2px; background: var(--accent); }
-.section-title { font-family: var(--font-display); font-size: clamp(40px, 6vw, 72px); line-height: 0.95; letter-spacing: -0.5px; max-width: 700px; }
-.section-subtitle { font-size: clamp(16px, 1.5vw, 18px); line-height: 1.7; color: var(--gray-400); max-width: 560px; margin-top: 20px; font-weight: 300; }
-
 /* ═══ PROCESS ═══ */
 .process {
   background: var(--gray-900);
@@ -210,48 +155,13 @@ section { padding: clamp(80px, 10vw, 140px) 0; }
   border: 1px solid rgba(255,80,80,0.15);
 }
 
-/* ═══ CTA ═══ */
-.cta-section { padding: clamp(80px, 10vw, 120px) 0; }
-.cta-block { text-align: center; background: linear-gradient(145deg, var(--gray-900), var(--gray-800)); border: 1px solid var(--gray-700); border-radius: 24px; padding: clamp(56px, 8vw, 96px) clamp(32px, 6vw, 80px); position: relative; overflow: hidden; }
-.cta-block::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at center, rgba(43,143,217,0.05), transparent 60%); }
-.cta-block .section-eyebrow { justify-content: center; }
-.cta-block .section-title { margin: 0 auto; max-width: 600px; position: relative; z-index: 1; }
-.cta-block .section-subtitle { text-align: center; margin: 20px auto 0; position: relative; z-index: 1; }
-.cta-block .btn-primary { margin-top: 40px; position: relative; z-index: 1; }
-
-/* ═══ FOOTER ═══ */
-footer { border-top: 1px solid var(--gray-700); padding: 56px 0 40px; }
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
-.footer-brand .logo { margin-bottom: 16px; }
-.footer-brand p { font-size: 14px; color: var(--gray-400); line-height: 1.6; max-width: 300px; }
-.footer-col h5 { font-family: var(--font-display); font-size: 16px; letter-spacing: 2px; margin-bottom: 20px; color: var(--cream); }
-.footer-col a { display: block; font-size: 14px; color: var(--gray-400); text-decoration: none; padding: 4px 0; transition: color 0.3s; }
-.footer-col a:hover { color: var(--accent); }
-.footer-bottom { border-top: 1px solid var(--gray-700); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--gray-400); }
-.footer-bottom a { color: var(--gray-400); text-decoration: none; transition: color 0.3s; }
-.footer-bottom a:hover { color: var(--accent); }
-.footer-legal { display: flex; gap: 24px; }
-
-@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-
 @media (max-width: 1024px) {
   .process-steps { grid-template-columns: repeat(2, 1fr); gap: 40px; }
   .process-steps::before { display: none; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
-  .nav-links { display: none; }
-  .mobile-toggle { display: flex; }
-  .nav-links.open { display: flex; flex-direction: column; position: fixed; inset: 0; background: var(--black); justify-content: center; align-items: center; gap: 32px; z-index: 99; }
-  .nav-links.open a { font-size: 24px; color: var(--cream); }
   .process-steps { grid-template-columns: 1fr; }
-  .comparison-header-row, .comparison-row { grid-template-columns: 2fr 1fr 1fr; }
   .comparison-row > div { padding: 14px 12px; font-size: 13px; }
-  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
-  .footer-legal { flex-wrap: wrap; justify-content: center; }
 }
 </style>
 </head>
@@ -259,12 +169,12 @@ footer { border-top: 1px solid var(--gray-700); padding: 56px 0 40px; }
 
 <nav id="mainNav">
   <div class="container">
-    <a href="/" class="logo"><span class="logo-mark"></span>REMATCH PT</a>
+    <a href="index.html" class="logo"><span class="logo-mark"></span>REMATCH PT</a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="/injuries">Injuries</a></li>
-      <li><a href="/methodologies">Methodologies</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/contact" class="nav-cta">Get Started</a></li>
+      <li><a href="injuries.html">Injuries</a></li>
+      <li><a href="methodologies.html">Methodologies</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Get Started</a></li>
     </ul>
     <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   </div>
@@ -279,7 +189,7 @@ footer { border-top: 1px solid var(--gray-700); padding: 56px 0 40px; }
       <h1>OUR <em>REMATCHED</em> PROCESS</h1>
       <p class="page-hero-sub">Expert help for recovery that fits into your busy week. In-person and on-call treatment designed around you.</p>
       <div class="page-hero-cta">
-        <a href="/contact" class="btn-primary">Free Consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="contact.html" class="btn-primary">Free Consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
     </div>
   </div>
@@ -372,7 +282,7 @@ footer { border-top: 1px solid var(--gray-700); padding: 56px 0 40px; }
       <div class="section-eyebrow">Ready?</div>
       <h2 class="section-title">GET MOVING TODAY</h2>
       <p class="section-subtitle">Take the first step toward feeling and moving better. Schedule your free consultation with Dr. Allie.</p>
-      <a href="/contact" class="btn-primary">Free Consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="contact.html" class="btn-primary">Free Consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
   </div>
 </section>
@@ -380,9 +290,9 @@ footer { border-top: 1px solid var(--gray-700); padding: 56px 0 40px; }
 <footer>
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-brand"><a href="/" class="logo"><span class="logo-mark"></span>REMATCH PT</a><p>Expert physical therapy designed around your life. Anytime, anywhere recovery for active adults and athletes.</p></div>
-      <div class="footer-col"><h5>NAVIGATE</h5><a href="/">Home</a><a href="/injuries">Injuries</a><a href="/methodologies">Methodologies</a><a href="/about">About</a><a href="/contact">Contact</a></div>
-      <div class="footer-col"><h5>SERVICES</h5><a href="/injuries">Physical Therapy</a><a href="/injuries">Digital Coaching</a><a href="/injuries">Injury Prevention</a><a href="/injuries">Dry Needling</a><a href="/injuries">Sports Rehab</a></div>
+    <div class="footer-brand"><a href="index.html" class="logo"><span class="logo-mark"></span>REMATCH PT</a><p>Expert physical therapy designed around your life. Anytime, anywhere recovery for active adults and athletes.</p></div>
+    <div class="footer-col"><h5>NAVIGATE</h5><a href="index.html">Home</a><a href="injuries.html">Injuries</a><a href="methodologies.html">Methodologies</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+      <div class="footer-col"><h5>SERVICES</h5><a href="injuries.html">Physical Therapy</a><a href="injuries.html">Digital Coaching</a><a href="injuries.html">Injury Prevention</a><a href="injuries.html">Dry Needling</a><a href="injuries.html">Sports Rehab</a></div>
       <div class="footer-col"><h5>LEGAL</h5><a href="/terms">Terms & Conditions</a><a href="/privacy">Privacy Policy</a><a href="/accessibility">Accessibility</a></div>
     </div>
     <div class="footer-bottom"><span>&copy; 2025 AM Performance LLC. All Rights Reserved.</span><div class="footer-legal"><a href="/terms">Terms</a><a href="/privacy">Privacy</a><a href="/accessibility">Accessibility</a></div></div>

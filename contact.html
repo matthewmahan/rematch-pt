@@ -6,44 +6,8 @@
 <title>Contact — Rematch Physical Therapy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 <style>
-:root {
-  --black: #0a0a0a;
-  --cream: #f5f2ed;
-  --accent: #2b8fd9;
-  --accent-dim: #005ea8;
-  --gray-900: #141414;
-  --gray-800: #1c1c1c;
-  --gray-700: #2a2a2a;
-  --gray-400: #888;
-  --gray-300: #aaa;
-  --font-display: 'Bebas Neue', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-body { background: var(--black); color: var(--cream); font-family: var(--font-body); overflow-x: hidden; }
-.container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 64px); }
-
-/* ═══ NAV ═══ */
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 0; transition: background 0.4s; }
-nav.scrolled { background: rgba(10,10,10,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
-nav .container { display: flex; align-items: center; justify-content: space-between; }
-.logo { font-family: var(--font-display); font-size: 28px; letter-spacing: 3px; text-decoration: none; color: var(--cream); display: flex; align-items: center; gap: 10px; }
-.logo-mark { width: 8px; height: 32px; background: var(--accent); border-radius: 2px; display: inline-block; }
-.nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
-.nav-links a { font-size: 14px; font-weight: 500; letter-spacing: 0.5px; text-decoration: none; color: var(--gray-300); transition: color 0.3s; text-transform: uppercase; }
-.nav-links a:hover { color: var(--cream); }
-.nav-cta { background: var(--accent) !important; color: #fff !important; padding: 12px 28px; border-radius: 100px; font-weight: 700 !important; font-size: 13px !important; letter-spacing: 1px !important; transition: transform 0.3s, box-shadow 0.3s !important; }
-.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(43,143,217,0.25); }
-.mobile-toggle { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 6px; padding: 4px; }
-.mobile-toggle span { display: block; width: 28px; height: 2px; background: var(--cream); }
-
-section { padding: clamp(80px, 10vw, 140px) 0; }
-.section-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
-.section-eyebrow::before { content: ''; width: 30px; height: 2px; background: var(--accent); }
-
 /* ═══ CONTACT HERO ═══ */
 .contact-hero {
   min-height: 100vh;
@@ -212,34 +176,11 @@ section { padding: clamp(80px, 10vw, 140px) 0; }
 
 .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(43,143,217,0.3); }
 
-/* ═══ FOOTER ═══ */
-footer { border-top: 1px solid var(--gray-700); padding: 56px 0 40px; }
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
-.footer-brand .logo { margin-bottom: 16px; }
-.footer-brand p { font-size: 14px; color: var(--gray-400); line-height: 1.6; max-width: 300px; }
-.footer-col h5 { font-family: var(--font-display); font-size: 16px; letter-spacing: 2px; margin-bottom: 20px; color: var(--cream); }
-.footer-col a { display: block; font-size: 14px; color: var(--gray-400); text-decoration: none; padding: 4px 0; transition: color 0.3s; }
-.footer-col a:hover { color: var(--accent); }
-.footer-bottom { border-top: 1px solid var(--gray-700); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--gray-400); }
-.footer-bottom a { color: var(--gray-400); text-decoration: none; transition: color 0.3s; }
-.footer-bottom a:hover { color: var(--accent); }
-.footer-legal { display: flex; gap: 24px; }
-
-@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-
 @media (max-width: 1024px) {
   .contact-layout { grid-template-columns: 1fr; gap: 48px; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
-  .nav-links { display: none; }
-  .mobile-toggle { display: flex; }
-  .nav-links.open { display: flex; flex-direction: column; position: fixed; inset: 0; background: var(--black); justify-content: center; align-items: center; gap: 32px; z-index: 99; }
-  .nav-links.open a { font-size: 24px; color: var(--cream); }
   .form-row { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
-  .footer-legal { flex-wrap: wrap; justify-content: center; }
 }
 </style>
 </head>
@@ -247,12 +188,12 @@ footer { border-top: 1px solid var(--gray-700); padding: 56px 0 40px; }
 
 <nav id="mainNav">
   <div class="container">
-    <a href="/" class="logo"><span class="logo-mark"></span>REMATCH PT</a>
+    <a href="index.html" class="logo"><span class="logo-mark"></span>REMATCH PT</a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="/injuries">Injuries</a></li>
-      <li><a href="/methodologies">Methodologies</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/contact" class="nav-cta">Get Started</a></li>
+      <li><a href="injuries.html">Injuries</a></li>
+      <li><a href="methodologies.html">Methodologies</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Get Started</a></li>
     </ul>
     <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   </div>
@@ -353,8 +294,8 @@ footer { border-top: 1px solid var(--gray-700); padding: 56px 0 40px; }
 <footer>
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-brand"><a href="/" class="logo"><span class="logo-mark"></span>REMATCH PT</a><p>Expert physical therapy designed around your life. Anytime, anywhere recovery for active adults and athletes.</p></div>
-      <div class="footer-col"><h5>NAVIGATE</h5><a href="/">Home</a><a href="/injuries">Injuries</a><a href="/methodologies">Methodologies</a><a href="/about">About</a><a href="/contact">Contact</a></div>
+    <div class="footer-brand"><a href="index.html" class="logo"><span class="logo-mark"></span>REMATCH PT</a><p>Expert physical therapy designed around your life. Anytime, anywhere recovery for active adults and athletes.</p></div>
+    <div class="footer-col"><h5>NAVIGATE</h5><a href="index.html">Home</a><a href="injuries.html">Injuries</a><a href="methodologies.html">Methodologies</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
       <div class="footer-col"><h5>SERVICES</h5><a href="/injuries">Physical Therapy</a><a href="/injuries">Digital Coaching</a><a href="/injuries">Injury Prevention</a><a href="/injuries">Dry Needling</a><a href="/injuries">Sports Rehab</a></div>
       <div class="footer-col"><h5>LEGAL</h5><a href="/terms">Terms & Conditions</a><a href="/privacy">Privacy Policy</a><a href="/accessibility">Accessibility</a></div>
     </div>
